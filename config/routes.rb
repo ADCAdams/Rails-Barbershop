@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
-  post '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   get '/signup' =>  'customers#new'
+  delete '/logout' => 'sessions#destroy'
 
   resources :appointments
   resources :customers

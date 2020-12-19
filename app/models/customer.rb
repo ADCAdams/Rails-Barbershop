@@ -4,5 +4,7 @@ class Customer < ApplicationRecord
     has_many :barbers, through: :appointments
     accepts_nested_attributes_for :payment_profiles
 
+    validates :username, uniqueness: true, presence: true 
+
     has_secure_password
 end

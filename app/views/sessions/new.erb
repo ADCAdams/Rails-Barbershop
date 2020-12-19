@@ -1,0 +1,16 @@
+<h1> Login </h1>
+
+<p> <%= flash[:error] if flash%> </p>
+
+<%= form_for :customer do |f|%>
+    <%= f.label "Username:" %>
+    <%= f.text_field :username %>
+
+    <%= f.label "Password:" %>
+    <%= f.password_field :password %>
+
+<br>
+
+<%= f.submit "Login" %>
+
+<% end %>

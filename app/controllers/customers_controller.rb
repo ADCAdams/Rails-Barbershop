@@ -23,6 +23,7 @@ class CustomersController < ApplicationController
 
     def show
         @customer = Customer.find_by_id(params[:id])
+        redirect_to '/' if !@customer
     end
 
 
@@ -32,6 +33,6 @@ class CustomersController < ApplicationController
           :password,
           payment_profiles_attributes: [ :cc_name, :cc_number ]
         )
-      end
+    end
 
 end
