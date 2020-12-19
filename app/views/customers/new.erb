@@ -7,6 +7,14 @@
     <%= f.label "Password:" %>
     <%= f.password_field :password %>
 
+    <%= f.fields_for :payment_profiles do |inner_form| %>
+        <%= inner_form.label :cc_name %>
+        <%= inner_form.text_field :cc_name %><br/>
+    
+        <%= inner_form.label :cc_number %>
+        <%= inner_form.text_field :cc_number %><br/>
+      <% end %>
+
     <%= f.submit "Sign up!" %>
 
 <% end %>
