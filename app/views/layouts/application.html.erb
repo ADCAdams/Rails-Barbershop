@@ -10,7 +10,10 @@
   </head>
 
   <div>
-    <%=  link_to "Log Out", logout_path, method: :delete if session[:user_id]%>
+    <% if session[:user_id] %>
+      <%=  link_to "Log Out", logout_path, method: :delete %>
+      <%= link_to "Make a new appointment", new_appointment_path %>
+    <% end %>
   </div>
 
   <body>
