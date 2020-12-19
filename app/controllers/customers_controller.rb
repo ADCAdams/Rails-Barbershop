@@ -7,9 +7,17 @@ class CustomersController < ApplicationController
 
 
     def create
-
-
+        binding.pry
+        @customer = Customer.create(customer_params)
+        if @customer.save
+            session[:user_id] = @user.user_id
+            redirect_to customer_path(@customer)
+        else
+            render :new
+        end
     end
+
+
 
     def show
 
