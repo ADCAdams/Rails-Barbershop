@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   get '/' => 'sessions#welcome'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#new'
+  get '/signup' =>  'users#new'
+  
   resources :appointments
   resources :customers
   resources :barbers
