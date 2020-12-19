@@ -1,0 +1,19 @@
+<h1> Customer:  </h1>
+<h1> <%= @customer.username %></h1>
+
+<br>
+<br>
+
+<h3> Appointments: </h3>
+<br>
+
+<br>
+<br>
+<h3> Payment Profiles: </h3>
+<br>
+<ul>
+<% binding.pry %>
+<% @customer.payment_profiles.each do |payment_profile| %>
+  <li><%= payment_profile.cc_name %></li>
+<% end %>
+</ul>

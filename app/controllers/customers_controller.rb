@@ -3,14 +3,16 @@ class CustomersController < ApplicationController
 
     def new
         @customer = Customer.new
+        @customer.payment_profiles.build(cc_name: "")
+        # @customer.payment_profiles.build(cc_name: "")
     end
 
 
     def create
-        binding.pry
+        #binding.pry
         @customer = Customer.create(customer_params)
         if @customer.save
-            session[:user_id] = @user.user_id
+            session[:user_id] = @customer.id
             redirect_to customer_path(@customer)
         else
             render :new
@@ -20,7 +22,7 @@ class CustomersController < ApplicationController
 
 
     def show
-
+        @customer = Customer.find_by_id(params[:id])
     end
 
 
@@ -28,7 +30,7 @@ class CustomersController < ApplicationController
         params.require(:customer).permit(
           :username,
           :password,
-          payment_profiles: [ :cc_name, :cc_number ]
+          payment_profiles_attributes: [ :cc_name, :cc_number ]
         )
       end
 
