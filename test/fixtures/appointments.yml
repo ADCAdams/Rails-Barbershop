@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appointment_datetime: 2020-12-18 20:37:37
+  style: MyString
+  barber: one
+  customer: one
+
+two:
+  appointment_datetime: 2020-12-18 20:37:37
+  style: MyString
+  barber: two
+  customer: two
