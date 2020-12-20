@@ -11,8 +11,11 @@
 
   <div>
     <% if session[:user_id] %>
-      <%=  link_to "Log Out", logout_path, method: :delete %>
-      <%= link_to "Make a new appointment", new_appointment_path %>
+      <%=  link_to "Log Out", logout_path, method: :delete %> 
+      .    .
+      <%= link_to "Your Profile", customer_path(session[:user_id]) %>
+       .   .
+      <%= link_to "Make a new appointment", new_customer_appointment_path(session[:user_id]) %>
     <% end %>
   </div>
 

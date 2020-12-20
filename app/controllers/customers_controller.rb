@@ -23,6 +23,8 @@ class CustomersController < ApplicationController
 
     def show
         @customer = Customer.find_by_id(params[:id])
+        # @customer_appointments = @customer.appointments
+        # @customer_appointments.order_by_appointment_datetime
         redirect_to '/' if !@customer
     end
 
