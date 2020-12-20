@@ -1,0 +1,31 @@
+<h1> Make a new appointment! </h1>
+
+<h1> New customer! signup </h1>
+
+<%= form_for @appointment do |f|%>
+    <div>
+    <%= f.label "Date and Time" %>
+    <%= f.datetime_select :appointment_datetime %>
+    </div>
+    <br>
+    <p> Choose a barber ...</p>
+    <div>
+    <%= f.collection_select :barber_id, Barber.all, :id, :name %>
+    </div>
+
+    <p> ..OR..Name your barber </p>
+    <div>
+    <%= f.fields_for :barber  do |b| %>
+        <%= b.label "Barber Name" %>
+        <%= b.text_field :name %>
+        
+        <%= b.label "Mustached?" %>
+        <%= b.check_box :mustache %>
+    <% end %>
+    </div>
+
+<br>
+
+    <%= f.submit "Make Appointment" %>
+
+<% end %>
