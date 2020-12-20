@@ -1,6 +1,5 @@
 <h1> Make a new appointment! </h1>
 
-<h1> New customer! signup </h1>
 
 <%= form_for @appointment do |f|%>
     <div>
@@ -8,12 +7,18 @@
     <%= f.datetime_select :appointment_datetime %>
     </div>
     <br>
+
+    <div>
+    <%= f.label "What style do you want?" %>
+    <%= f.text_field :style %>
+    </div>
+    <br>
     <p> Choose a barber ...</p>
     <div>
     <%= f.collection_select :barber_id, Barber.all, :id, :name %>
     </div>
 
-    <p> ..OR..Name your barber </p>
+    <p> ..OR..Name your barber: </p>
     <div>
     <%= f.fields_for :barber  do |b| %>
         <%= b.label "Barber Name" %>
