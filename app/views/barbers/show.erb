@@ -9,7 +9,7 @@
 <ul>
 
 <% @barber.appointments.each do |app| %>
-  <li><%= app.style %> cut with <%= app.customer.username %> at <%= app.appointment_datetime %></li>
+  <li><%= app.style %> cut with <%= link_to app.customer.username, customer_path(app.customer_id) %> at <%= app.appointment_datetime %></li>
 <% end %>
 </ul>
 
