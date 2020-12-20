@@ -1,16 +1,16 @@
 class AppointmentsController < ApplicationController
 
     def new
+        @customer = Appointment.find_by_id(params[:customer_id])
         @appointment = Appointment.new
         @appointment.build_barber
     end
 
     def create
-        @appointment = Appointment.create(appointment_params)
+        @appointment = current_customer.appointments.build(appointment_params)
         #binding.pry
         @appointment.customer_id = session[:user_id]
         if @appointment.save
-            binding.pry
             redirect_to appointment_path(@appointment)
         else
             render :new

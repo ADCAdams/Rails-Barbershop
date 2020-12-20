@@ -6,6 +6,12 @@
 
 <h3> Appointments: </h3>
 <br>
+<ul>
+
+<% @customer.appointments.each do |app| %>
+  <li><%= app.style %> cut with <%= app.barber.name %> at <%= app.appointment_datetime %></li>
+<% end %>
+</ul>
 
 <br>
 <br>
