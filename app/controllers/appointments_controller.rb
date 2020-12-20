@@ -5,13 +5,29 @@ class AppointmentsController < ApplicationController
         @appointment.build_barber
     end
 
+    def create
+        @appointment = Appointment.create(appointment_params)
+        @appointment.customer_id = session[:user_id]
+        if @appointment.save
+            redirect_to appointment_path(@appointment)
+        else
+            render :new
+        end
+    end
+
+
+    private
+
     def appointment_params
-        params.require(:customer).permit(
+        binding.pry
+        params.require(:appointment).permit(
           :appointment_datetime,
           :style,
           :barber_id,
-          :customer_id
-          payment_profiles_attributes: [ :cc_name, :cc_number ]
+          :customer_id,
+          barber_attributes: [ :name, :mustache ]
         )
     end
+
+
 end
