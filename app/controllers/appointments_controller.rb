@@ -7,8 +7,10 @@ class AppointmentsController < ApplicationController
 
     def create
         @appointment = Appointment.create(appointment_params)
+        #binding.pry
         @appointment.customer_id = session[:user_id]
         if @appointment.save
+            binding.pry
             redirect_to appointment_path(@appointment)
         else
             render :new
@@ -20,19 +22,34 @@ class AppointmentsController < ApplicationController
         redirect_to '/' if !@appointment
     end
 
+    def index
+        @appointments = Appointment.all 
+    end
+
 
 
     private
 
     def appointment_params
-        binding.pry
-        params.require(:appointment).permit(
-          :appointment_datetime,
-          :style,
-          :barber_id,
-          :customer_id,
-          barber_attributes: [ :name, :mustache ]
-        )
+        #binding.pry
+
+        if params[:appointment][:barber_attributes][:name] == ""
+            params.require(:appointment).permit(
+                :appointment_datetime,
+                :style,
+                :barber_id,
+                :customer_id)
+        else
+
+            params.require(:appointment).permit(
+            :appointment_datetime,
+            :style,
+            :barber_id,
+            :customer_id,
+            barber_attributes: [ :name, :mustache ]
+            )
+        end
+
     end
 
 

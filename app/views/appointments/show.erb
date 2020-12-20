@@ -1,0 +1,20 @@
+<h1> <%=@appointment.customer.username%>'s Appointment:  </h1>
+<h1> scheduled for <%= @appointment.appointment_datetime %></h1>
+
+<br>
+<br>
+<h3> Style:
+<%= @appointment.style %>
+</h3>
+
+<h3> Barber:  <%= link_to @appointment.barber.name, barber_path(@appointment.barber_id) %>
+</h3>
+
+<br>
+<br>
+<div> For customer: 
+<%= link_to @appointment.customer.username, customer_path(@appointment.customer_id) %>
+</div>
+<br>
+
+
