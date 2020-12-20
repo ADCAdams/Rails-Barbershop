@@ -1,0 +1,21 @@
+<h1> barber:  </h1>
+<h1> <%= @barber.name %></h1>
+
+<br>
+<br>
+
+<h3> Appointments: </h3>
+<br>
+<ul>
+
+<% @barber.appointments.each do |app| %>
+  <li><%= app.style %> cut with <%= app.customer.username %> at <%= app.appointment_datetime %></li>
+<% end %>
+</ul>
+
+<br>
+<br>
+
+<br>
+
+

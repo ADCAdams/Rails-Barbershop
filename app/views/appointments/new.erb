@@ -15,7 +15,7 @@
     <br>
     <p> Choose a barber ...</p>
     <div>
-    <%= f.collection_select :barber_id, Barber.all, :id, :name %>
+    <%= f.collection_select :barber_id, Barber.all, :id, :name, :prompt => "Our Barbers.." %>
     </div>
 
     <p> ..OR..Name your barber: </p>
