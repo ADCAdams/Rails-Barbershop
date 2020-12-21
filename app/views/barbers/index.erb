@@ -1,0 +1,7 @@
+<h1> barbers </h1>
+<ul>
+<% @barbers.each do |barber| %>
+  <li>Name: <%= link_to barber.name, barber_path(barber) %> Number of Appointments: <%= barber.appointments.count %></li>
+<br>
+<% end %>
+</ul>
