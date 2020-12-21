@@ -1,12 +1,10 @@
 class CustomersController < ApplicationController
 
-
     def new
         @customer = Customer.new
         @customer.payment_profiles.build(cc_name: "")
         # @customer.payment_profiles.build(cc_name: "")
     end
-
 
     def create
         #binding.pry
@@ -19,15 +17,11 @@ class CustomersController < ApplicationController
         end
     end
 
-
-
     def show
         @customer = Customer.find_by_id(params[:id])
-        # @customer_appointments = @customer.appointments
-        # @customer_appointments.order_by_appointment_datetime
+        @customer_appointments = @customer.appointments.order_by_appointment_datetime
         redirect_to '/' if !@customer
     end
-
 
     def customer_params
         params.require(:customer).permit(
