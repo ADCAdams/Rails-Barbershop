@@ -4,7 +4,7 @@
 <br>
 <br>
 
-<h3> Appointments: </h3>
+<h3> <%= @customer.username%>'s <%= link_to "Appointments", customer_appointments_path(@customer.id) %> </h3>
 <br>
 <ul>
 

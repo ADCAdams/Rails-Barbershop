@@ -25,7 +25,8 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        @appointments = Appointment.all 
+        @customer = Customer.find_by_id(params[:customer_id])
+        @appointments = @customer.appointments.all
     end
 
 

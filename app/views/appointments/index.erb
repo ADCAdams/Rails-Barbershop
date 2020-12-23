@@ -1,0 +1,7 @@
+<h1> <%=@customer.username%>'s appointments </h1>
+
+
+<% @appointments.each do |app| %>
+    <li><%= app.style %> cut with <%= link_to app.barber.name, barber_path(app.barber_id) %> at <%= app.appointment_datetime %></li>
+  <% end %>
+  </ul>
