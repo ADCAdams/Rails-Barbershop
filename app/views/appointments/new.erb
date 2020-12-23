@@ -36,7 +36,7 @@
 
     <p> ..OR..Name your barber: </p>
     <div>
-    <%= f.fields_for :barber, @appointment.build_barber do |b| %>
+    <%= f.fields_for :barber, @appointment.barber do |b| %>
         <%= b.label "Barber Name" %>
         <%= b.text_field :name %>
         
