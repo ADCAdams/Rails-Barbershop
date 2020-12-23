@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
 
     def index
         @customer = Customer.find_by_id(params[:customer_id])
-        @appointments = @customer.appointments.all
+        @appointments = @customer.appointments.order_by_appointment_datetime
     end
 
 
