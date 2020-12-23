@@ -8,14 +8,12 @@ class AppointmentsController < ApplicationController
 
     def create
         @appointment = current_customer.appointments.build(appointment_params)
-        #binding.pry
         @appointment.customer_id = session[:user_id]
         if @appointment.save
             redirect_to appointment_path(@appointment)
         else
-
             #flash[:message] = "#{@appointment.errors.full_messages.to_sentence}."
-            render :new, :barber_id => nil
+            render :new
         end
     end
 
