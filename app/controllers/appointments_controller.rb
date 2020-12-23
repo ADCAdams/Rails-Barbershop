@@ -13,6 +13,7 @@ class AppointmentsController < ApplicationController
         if @appointment.save
             redirect_to appointment_path(@appointment)
         else
+            #flash[:message] = "#{@appointment.errors.full_messages.to_sentence}."
             render :new
         end
     end
