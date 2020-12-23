@@ -4,4 +4,6 @@ class Barber < ApplicationRecord
 
     validates :name, uniqueness: true, presence: true 
     validates :name, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+    validates :name, length: { minimum: 2 }
+    validates :name, length: { maximum: 20 }
 end
