@@ -34,6 +34,24 @@ class SessionsController < ApplicationController
         redirect_to '/'
     end
 
+    def create_with_fb
+        customer = Customer.find_or_create_by(authID: auth['uid']) do |u|
+            u.username = auth['info']['name']
+            u.password = 'password'
+        end
+        customer.save
+        session[:user_id] = customer.id
+        binding.pry
+        redirect_to '/'
+
+    end
+
+
+    private
+
+  def auth
+    request.env['omniauth.auth']
+  end
 
 
 

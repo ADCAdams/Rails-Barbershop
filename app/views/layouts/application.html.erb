@@ -16,7 +16,10 @@
       <%= link_to "Your Profile", customer_path(session[:user_id]) %>
        .   .
       <%= link_to "Make a new appointment", new_customer_appointment_path(session[:user_id]) %>
-    <% end %>
+    <% else %>
+    .   .
+    <%= link_to "Sign in with Facebook", '/auth/facebook' %>
+      <% end %>
   </div>
 
   <body>

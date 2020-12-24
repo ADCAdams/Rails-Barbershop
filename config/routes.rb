@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/signup' =>  'customers#new'
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/facebook/callback', to: 'sessions#create_with_fb'
   resources :appointments
   resources :customers do 
     resources :appointments, only: [:new, :index]

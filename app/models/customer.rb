@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
 
     validates :username, uniqueness: true, presence: true 
     validates :username, length: { minimum: 2 }
-    validates :username, length: { maximum: 20 }
+    validates :username, length: { maximum: 30 }
 
     has_secure_password
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_172537) do
+ActiveRecord::Schema.define(version: 2020_12_24_001746) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "appointment_datetime"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_172537) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "authID"
   end
 
   create_table "payment_profiles", force: :cascade do |t|
