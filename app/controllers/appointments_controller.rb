@@ -29,8 +29,7 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-
-        if params[:id].to_i == session[:user_id]     #if user is logged in
+        if params[:customer_id].to_i == session[:user_id]     #if user is logged in
 
             @customer = Customer.find_by_id(params[:customer_id])
             @appointments = @customer.appointments.order_by_appointment_datetime

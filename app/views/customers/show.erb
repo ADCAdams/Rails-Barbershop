@@ -6,17 +6,8 @@
 
 <h3> <%= @customer.username%>'s <%= link_to "Appointments", customer_appointments_path(@customer.id) %>: <%= @customer_appointments.count %></h3>
 <br>
-<ul>
 
 
-<br>
-<% @customer_appointments.each do |app| %>
-  <li><%= app.style %> cut with <%= link_to app.barber.name, barber_path(app.barber_id) %> at <%= app.appointment_datetime %></li>
-<% end %>
-</ul>
-
-<br>
-<br>
 <h3> Payment Profiles: </h3>
 <br>
 <ul>
