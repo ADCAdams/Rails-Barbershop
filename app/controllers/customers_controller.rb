@@ -30,6 +30,18 @@ class CustomersController < ApplicationController
         end
     end
 
+    def edit
+        @customer = valid_customer if valid_customer
+
+    end
+
+
+    def update
+        @customer = Customer.find(params[:id])
+        @customer.update(customer_params)
+        redirect_to customer_path(@customer)
+    end
+
     def customer_params
         params.require(:customer).permit(
           :username,
