@@ -41,8 +41,7 @@ class SessionsController < ApplicationController
         end
         customer.save
         session[:user_id] = customer.id
-        binding.pry
-        redirect_to '/'
+        redirect_to customer_path(customer)
 
     end
 
