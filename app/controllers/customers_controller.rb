@@ -18,9 +18,22 @@ class CustomersController < ApplicationController
     end
 
     def show
-        @customer = Customer.find_by_id(params[:id])
-        @customer_appointments = @customer.appointments.order_by_appointment_datetime
-        redirect_to '/' if !@customer
+        # @customer = Customer.find_by_id(params[:id])
+        # @customer_appointments = @customer.appointments.order_by_appointment_datetime
+        # redirect_to '/' if !@customer
+
+
+        if params[:id].to_i == session[:user_id]     #if user is logged in
+
+            @customer = Customer.find_by_id(params[:id])
+            @customer_appointments = @customer.appointments.order_by_appointment_datetime
+        elsif current_customer
+
+            redirect_to customer_path(current_customer)
+        else
+
+            redirect_to '/' 
+        end
     end
 
     def customer_params
