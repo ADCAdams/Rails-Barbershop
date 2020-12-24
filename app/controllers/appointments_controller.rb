@@ -29,8 +29,17 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        @customer = Customer.find_by_id(params[:customer_id])
-        @appointments = @customer.appointments.order_by_appointment_datetime
+
+        if params[:id].to_i == session[:user_id]     #if user is logged in
+
+            @customer = Customer.find_by_id(params[:customer_id])
+            @appointments = @customer.appointments.order_by_appointment_datetime
+        elsif current_customer
+
+            redirect_to customer_path(current_customer)
+        else
+            redirect_to '/' 
+        end
     end
 
 

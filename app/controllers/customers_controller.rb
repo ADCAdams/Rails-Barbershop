@@ -18,11 +18,6 @@ class CustomersController < ApplicationController
     end
 
     def show
-        # @customer = Customer.find_by_id(params[:id])
-        # @customer_appointments = @customer.appointments.order_by_appointment_datetime
-        # redirect_to '/' if !@customer
-
-
         if params[:id].to_i == session[:user_id]     #if user is logged in
 
             @customer = Customer.find_by_id(params[:id])
@@ -31,7 +26,6 @@ class CustomersController < ApplicationController
 
             redirect_to customer_path(current_customer)
         else
-
             redirect_to '/' 
         end
     end
